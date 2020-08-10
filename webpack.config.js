@@ -8,8 +8,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, `public`),
-    open: false,
-    inline: false,
+    open: true,
     port: 1337,
   },
   module: {
@@ -20,7 +19,7 @@ module.exports = {
         use: {
           loader: `babel-loader`,
         },
-      }
+      },
     ],
   },
   devtool: `source-map`,
