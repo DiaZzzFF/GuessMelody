@@ -1,9 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 
 const WelcomeScreen = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {errorsCount} = props;
+  const {errorsCount, onWelcomeButtonClick} = props;
 
   return (
     <section className="welcome">
@@ -11,7 +11,10 @@ const WelcomeScreen = (props) => {
         <img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"/>
       </div>
 
-      <button className="welcome__button">
+      <button
+        onClick={onWelcomeButtonClick}
+        className="welcome__button"
+      >
         <span className="visually-hidden">Начать игру</span>
       </button>
 
@@ -29,5 +32,9 @@ const WelcomeScreen = (props) => {
   );
 };
 
+WelcomeScreen.propTypes = {
+  errorsCount: PropTypes.number.isRequired,
+  onWelcomeButtonClick: PropTypes.func.isRequired,
+};
 
 export default WelcomeScreen;
