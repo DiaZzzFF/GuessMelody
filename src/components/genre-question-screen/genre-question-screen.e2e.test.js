@@ -71,7 +71,7 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
     target: {checked: true},
   });
   form.simulate(`submit`, {
-    preventDefault: {},
+    preventDefault() {},
   });
 
   expect(onAnswer).toHaveBeenCalledTimes(1);
