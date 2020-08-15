@@ -9,7 +9,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {errorsCount} = this.props;
+    const {questions} = this.props;
 
     return (
       <WelcomeScreen
