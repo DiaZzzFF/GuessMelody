@@ -5,9 +5,7 @@ import {GameType} from "../../const.js";
 
 const GameScreen = (props) => {
   const {
-    // eslint-disable-next-line react/prop-types
     type,
-    // eslint-disable-next-line react/prop-types
     children,
   } = props;
 
@@ -37,7 +35,7 @@ const GameScreen = (props) => {
   );
 };
 
-GameScreen.PropTypes = {
+GameScreen.propTypes = {
   type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
