@@ -5,7 +5,9 @@ import {GameType} from "../../const.js";
 
 const GameScreen = (props) => {
   const {
+    // eslint-disable-next-line react/prop-types
     type,
+    // eslint-disable-next-line react/prop-types
     children,
   } = props;
 
