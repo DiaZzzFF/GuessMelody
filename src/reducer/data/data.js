@@ -29,4 +29,13 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer, ActionType, ActionCreator};
+const Operation = {
+  loadQuestions: () => (dispatch, getState, api) => {
+    return api.get(`/questions`)
+      .then((response) => {
+        dispatch(ActionCreator.loadQuestions(response.data));
+      });
+  },
+};
+
+export {reducer, Operation, ActionType, ActionCreator};
