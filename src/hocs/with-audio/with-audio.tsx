@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 
 
 const withAudio = (Component) => {
@@ -82,13 +81,8 @@ const withAudio = (Component) => {
     }
   }
 
-  WithAudio.propTypes = {
-    isPlaying: PropTypes.bool.isRequired,
-    onPlayButtonClick: PropTypes.func.isRequired,
-    src: PropTypes.string.isRequired,
-  };
-
   return WithAudio;
 };
+
 
 export default withAudio;

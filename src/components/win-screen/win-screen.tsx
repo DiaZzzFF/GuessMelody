@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {AppRoute} from "../../const";
 
@@ -33,10 +32,5 @@ const WinScreen = (props) => {
   );
 };
 
-WinScreen.propTypes = {
-  questionsCount: PropTypes.number.isRequired,
-  mistakesCount: PropTypes.number.isRequired,
-  onReplayButtonClick: PropTypes.func.isRequired,
-};
 
 export default WinScreen;

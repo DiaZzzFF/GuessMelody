@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 
 
 class AuthScreen extends React.PureComponent {
@@ -82,9 +81,5 @@ class AuthScreen extends React.PureComponent {
   }
 }
 
-AuthScreen.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onReplayButtonClick: PropTypes.func.isRequired,
-};
 
 export default AuthScreen;
