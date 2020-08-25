@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Subtract} from "utility-types";
-import {QuestionGenre, AnswerArtist} from "../../types";
+import {QuestionGenre} from "../../types";
 
 
 interface Props {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {QuestionArtist, QuestionGenre, AnswerArtist} from "../../types";
+import {QuestionArtist, AnswerArtist} from "../../types";
 
 
 interface Props {

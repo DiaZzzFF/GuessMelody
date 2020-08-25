@@ -1,7 +1,7 @@
 import * as React from "react";
 import {configure, shallow} from "enzyme";
 import * as Adapter from "enzyme-adapter-react-16";
-import AudioPlayer from "./audio-player.js";
+import AudioPlayer from "./audio-player";
 
 
 configure({
