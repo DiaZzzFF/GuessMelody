@@ -1,47 +1,47 @@
-import React from "react";
+import * as React from "react";
 import {configure, shallow, mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import GenreQuestionScreen from "./genre-question-screen.jsx";
+import * as Adapter from "enzyme-adapter-react-16";
+import GenreQuestionScreen from "./genre-question-screen";
+import {GameType, QuestionGenre} from "../../types";
+import {noop} from "../../utils";
 
 
 configure({
   adapter: new Adapter(),
 });
 
-const mock = {
-  question: {
-    type: `genre`,
-    genre: `rock`,
-    answers: [
-      {
-        src: `path`,
-        genre: `rock`,
-      },
-      {
-        src: `path`,
-        genre: `jazz`,
-      },
-      {
-        src: `path`,
-        genre: `jazz`,
-      },
-      {
-        src: `path`,
-        genre: `blues`,
-      },
-    ],
-  },
+
+const question: QuestionGenre = {
+  type: GameType.GENRE,
+  genre: `rock`,
+  answers: [
+    {
+      src: `path`,
+      genre: `rock`,
+    },
+    {
+      src: `path`,
+      genre: `jazz`,
+    },
+    {
+      src: `path`,
+      genre: `jazz`,
+    },
+    {
+      src: `path`,
+      genre: `blues`,
+    },
+  ],
 };
 
 it(`When user answers genre question form is not sent`, () => {
-  const {question} = mock;
   const onAnswer = jest.fn();
   const genreQuestion = shallow((
     <GenreQuestionScreen
       onAnswer={onAnswer}
       question={question}
-      renderPlayer={() => {}}
-      onChange={() => {}}
+      renderPlayer={() => null}
+      onChange={noop}
       userAnswers={[false, false, false, false]}
     />
   ));
@@ -58,7 +58,6 @@ it(`When user answers genre question form is not sent`, () => {
 });
 
 it(`User answer passed to callback is consistent with "userAnswer" prop`, () => {
-  const {question} = mock;
   const onAnswer = jest.fn((...args) => [...args]);
   const userAnswer = [false, true, false, false];
 
@@ -66,8 +65,8 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
     <GenreQuestionScreen
       onAnswer={onAnswer}
       question={question}
-      renderPlayer={() => {}}
-      onChange={() => {}}
+      renderPlayer={() => null}
+      onChange={noop}
       userAnswers={userAnswer}
     />
   ));
@@ -79,7 +78,7 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
     target: {checked: true},
   });
   form.simulate(`submit`, {
-    preventDefault() {},
+    preventDefault: noop,
   });
 
   expect(onAnswer).toHaveBeenCalledTimes(1);

@@ -1,7 +1,9 @@
-import React from "react";
+import * as React from "react";
 import {configure, shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import withUserAnswer from "./with-user-answer.js";
+import * as Adapter from "enzyme-adapter-react-16";
+import withUserAnswer from "./with-user-answer";
+import {GameType, QuestionGenre} from "../../types";
+import {noop} from "../../utils";
 
 
 configure({
@@ -11,33 +13,32 @@ configure({
 const MockComponent = () => <div />;
 const MockComponentWrapped = withUserAnswer(MockComponent);
 
-const mock = {
-  question: {
-    type: `genre`,
-    genre: `rock`,
-    answers: [
-      {
-        src: `path`,
-        genre: `rock`,
-      }, {
-        src: `path`,
-        genre: `jazz`,
-      }, {
-        src: `path`,
-        genre: `jazz`,
-      }, {
-        src: `path`,
-        genre: `blues`,
-      },
-    ],
-  },
+
+const question: QuestionGenre = {
+  type: GameType.GENRE,
+  genre: `rock`,
+  answers: [
+    {
+      src: `path`,
+      genre: `rock`,
+    }, {
+      src: `path`,
+      genre: `jazz`,
+    }, {
+      src: `path`,
+      genre: `jazz`,
+    }, {
+      src: `path`,
+      genre: `blues`,
+    },
+  ],
 };
 
 it(`Should change answers`, () => {
   const wrapper = shallow(
       <MockComponentWrapped
-        question={mock.question}
-        onAnswer={() => {}}
+        question={question}
+        onAnswer={noop}
       />
   );
 
