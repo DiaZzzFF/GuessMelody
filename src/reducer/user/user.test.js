@@ -1,4 +1,4 @@
-import {reducer, ActionType, ActionCreator, AuthorizationStatus} from "./user.js";
+import {reducer, ActionType, ActionCreator, AuthorizationStatus} from "./user";
 
 
 it(`Reducer without additional parameters should return initial state`, () => {
